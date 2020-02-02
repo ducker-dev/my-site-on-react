@@ -1,0 +1,189 @@
+@import "./../variables.scss";
+
+@mixin textStyle {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 33.35% 66.65%;
+
+  &__left-side {
+    background-color: $gray;
+  }
+
+  &__right-side {
+    background-color: $codGray;
+  }
+
+  &__logo {
+    margin-top: 119px;
+    width: 160px;
+    height: 160px;
+  }
+
+  &__functions {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  &__title {
+    margin: 46px 0 0 -3px;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 88px;
+    color: $buttercup;
+  }
+
+  &__more-info {
+    display: flex;
+  }
+
+  &__desired-position {
+    margin-top: -2px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: $white;
+  }
+
+  &__social-links {
+    margin-top: -4px;
+    display: flex;
+    margin-left: auto;
+  }
+
+  &__social-link {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    background-color: $lightHr;
+    border-radius: 4px;
+
+    &:not(:last-child) {
+      margin-right: 6px;
+    }
+  }
+
+  &__telegram-icon {
+    margin: 6px auto auto 6px;
+  }
+
+  &__instagram-icon {
+    margin: auto;
+  }
+
+  &__vk-icon {
+    margin: auto;
+  }
+
+  &__hr {
+    border: none;
+    height: 1px;
+    background-color: $lightHr;
+    margin: 79px 0 20px 0;
+  }
+
+  &__contacts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 57px;
+  }
+
+  &__contact {
+    &-title {
+      margin-bottom: 4px;
+      color: $doveGray;
+      font-weight: 800;
+      font-size: 12px;
+      line-height: 16px;
+    }
+    &-content {
+      vertical-align: middle;
+      font-size: 12px;
+      line-height: 16px;
+
+      &:not(.header__contact-address) {
+        color: $buttercup;
+        text-decoration: none;
+      }
+    }
+    &-address {
+      color: $white;
+    }
+  }
+}
+
+.switch-language {
+  display: flex;
+  align-items: center;
+
+  &__subscription {
+    margin-right: 8px;
+    color: $white;
+    @include textStyle;
+  }
+
+  &__button {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    color: $silver;
+    cursor: pointer;
+    @include textStyle;
+
+    &_active {
+      color: $buttercup;
+      text-decoration-line: underline;
+    }
+  }
+
+  &__slash {
+    margin: 0 3px;
+    color: $doveGray;
+    @include textStyle;
+  }
+}
+
+.switch-topic {
+  position: relative;
+  padding: 6px 0;
+  margin-left: auto;
+  cursor: pointer;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+
+    &:checked + .switch-topic__slider:before {
+      left: 2px;
+    }
+    &:focus + .switch-topic__slider:before {
+      outline: #15469b auto 5px;
+    }
+  }
+  &__slider {
+    position: relative;
+    box-sizing: border-box;
+    width: 30px;
+    height: 4px;
+    background-color: $silver;
+    border-radius: 10px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: 12px;
+      background-color: $buttercup;
+      width: 16px;
+      height: 16px;
+      box-shadow: 0px 0px 3px rgba(153, 153, 153, 0.6);
+      border-radius: 40px;
+      transition: left 0.4s;
+    }
+  }
+}
