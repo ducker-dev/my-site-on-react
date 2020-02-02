@@ -1,17 +1,24 @@
-// Цвета для фонов
-$gray: #1f1f1f;
-$mineShaft: #292929;
-$black: #000000;
-$codGray: #111111;
+// Цвета темных фонов
+$darkBg_1: #1f1f1f;
+$darkBg_2: #292929;
+$darkBg_3: #000000;
+$darkBg_4: #111111;
 
-// Цвета для текста
+// Цвета текста для темных фонов
 $white: #ffffff;
 $silver: #cccccc;
 $doveGray: #666666;
 $athensGray: #e3e5e8;
 
+// Цвет линии для темных фонов
+$lightHr: #333333;
+
+// Цвета светлых фонов
+$lightBg_1: #FCFCFC;
+$lightBg_2: #F8F8F8;
+$lightBg_3: #FFFFFF;
+
+
+
 // Основной акцентный цвет текста
 $buttercup: #f1b10d;
-
-// Светлый цвет полосы
-$lightHr: #333333;

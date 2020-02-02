@@ -10,14 +10,6 @@
   display: grid;
   grid-template-columns: 33.35% 66.65%;
 
-  &__left-side {
-    background-color: $gray;
-  }
-
-  &__right-side {
-    background-color: $codGray;
-  }
-
   &__logo {
     margin-top: 119px;
     width: 160px;
@@ -159,7 +151,7 @@
     opacity: 0;
 
     &:checked + .switch-topic__slider:before {
-      left: 2px;
+      left: 12px;
     }
     &:focus + .switch-topic__slider:before {
       outline: #15469b auto 5px;
@@ -177,13 +169,39 @@
       content: "";
       position: absolute;
       top: -6px;
-      left: 12px;
+      left: 2px;
       background-color: $buttercup;
       width: 16px;
       height: 16px;
       box-shadow: 0px 0px 3px rgba(153, 153, 153, 0.6);
       border-radius: 40px;
       transition: left 0.4s;
+    }
+  }
+}
+
+.theme {
+  &_light {
+    .header {
+      &__left-side {
+        background-color: $lightBg_1;
+      }
+    
+      &__right-side {
+        background-color: $lightBg_3;
+      }
+    }
+  }
+
+  &_dark {
+    .header {
+      &__left-side {
+        background-color: $darkBg_1;
+      }
+    
+      &__right-side {
+        background-color: $darkBg_4;
+      }
     }
   }
 }
