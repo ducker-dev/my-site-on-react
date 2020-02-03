@@ -1,14 +1,16 @@
 @import "./../variables.scss";
 
-@mixin textStyle {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 19px;
-}
-
 .header {
   display: grid;
   grid-template-columns: 33.35% 66.65%;
+
+  &__left-side {
+    transition: background-color $mainSpeed;
+  }
+
+  &__right-side {
+    transition: background-color $mainSpeed;
+  }
 
   &__logo {
     margin-top: 119px;
@@ -27,7 +29,7 @@
     font-weight: 800;
     font-size: 64px;
     line-height: 88px;
-    color: $buttercup;
+    color: $accentColor;
   }
 
   &__more-info {
@@ -39,7 +41,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
-    color: $white;
+    transition: color $mainSpeed;
   }
 
   &__social-links {
@@ -52,7 +54,7 @@
     display: flex;
     width: 24px;
     height: 24px;
-    background-color: $lightHr;
+    transition: background-color $mainSpeed;
     border-radius: 4px;
 
     &:not(:last-child) {
@@ -75,7 +77,7 @@
   &__hr {
     border: none;
     height: 1px;
-    background-color: $lightHr;
+    transition: background-color $mainSpeed;
     margin: 79px 0 20px 0;
   }
 
@@ -88,10 +90,10 @@
   &__contact {
     &-title {
       margin-bottom: 4px;
-      color: $doveGray;
       font-weight: 800;
       font-size: 12px;
       line-height: 16px;
+      transition: color $mainSpeed;
     }
     &-content {
       vertical-align: middle;
@@ -99,12 +101,12 @@
       line-height: 16px;
 
       &:not(.header__contact-address) {
-        color: $buttercup;
+        color: $accentColor;
         text-decoration: none;
       }
     }
     &-address {
-      color: $white;
+      transition: color $mainSpeed;
     }
   }
 }
@@ -113,9 +115,15 @@
   display: flex;
   align-items: center;
 
+  @mixin textStyle {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
   &__subscription {
     margin-right: 8px;
-    color: $white;
+    transition: color $mainSpeed;
     @include textStyle;
   }
 
@@ -123,19 +131,18 @@
     padding: 0;
     background-color: transparent;
     border: none;
-    color: $silver;
     cursor: pointer;
     @include textStyle;
 
     &_active {
-      color: $buttercup;
+      color: $accentColor !important;
       text-decoration-line: underline;
     }
   }
 
   &__slash {
     margin: 0 3px;
-    color: $doveGray;
+    transition: color $mainSpeed;
     @include textStyle;
   }
 }
@@ -150,9 +157,6 @@
     position: absolute;
     opacity: 0;
 
-    &:checked + .switch-topic__slider:before {
-      left: 12px;
-    }
     &:focus + .switch-topic__slider:before {
       outline: #15469b auto 5px;
     }
@@ -162,46 +166,124 @@
     box-sizing: border-box;
     width: 30px;
     height: 4px;
-    background-color: $silver;
+    background-color: $darkText_2;
     border-radius: 10px;
 
     &:before {
       content: "";
       position: absolute;
-      top: -6px;
       left: 2px;
-      background-color: $buttercup;
+      top: -6px;
       width: 16px;
       height: 16px;
       box-shadow: 0px 0px 3px rgba(153, 153, 153, 0.6);
       border-radius: 40px;
-      transition: left 0.4s;
+      transition: left $mainSpeed, background-color $mainSpeed;
     }
   }
 }
 
-.theme {
-  &_light {
-    .header {
-      &__left-side {
-        background-color: $lightBg_1;
-      }
-    
-      &__right-side {
-        background-color: $lightBg_3;
-      }
+.theme_light {
+  .header {
+    &__left-side {
+      background-color: $lightBg_1;
+    }
+
+    &__right-side {
+      background-color: $lightBg_3;
+    }
+
+    &__desired-position {
+      color: $lightText_3;
+    }
+
+    &__social-link {
+      background-color: $lightBg_4;
+    }
+
+    &__hr {
+      background-color: $lightHr;
+    }
+
+    &__contact-title {
+      color: $lightText_4;
+    }
+
+    &__contact-address {
+      color: $lightText_5;
     }
   }
 
-  &_dark {
-    .header {
-      &__left-side {
-        background-color: $darkBg_1;
+  .switch-language {
+    &__subscription {
+      color: $lightText_1;
+    }
+    &__slash {
+      color: $lightText_4;
+    }
+    &__button {
+      color: $lightText_2;
+    }
+  }
+
+  .switch-topic {
+    &__slider:before {
+      background-color: $darkBg_1;
+    }
+  }
+}
+
+.theme_dark {
+  .header {
+    &__left-side {
+      background-color: $darkBg_1;
+    }
+
+    &__right-side {
+      background-color: $darkBg_4;
+    }
+
+    &__desired-position {
+      color: $darkText_1;
+    }
+
+    &__social-link {
+      background-color: $darkBg_5;
+    }
+
+    &__hr {
+      background-color: $darkHr;
+    }
+
+    &__contact-title {
+      color: $darkText_3;
+    }
+
+    &__contact-address {
+      color: $darkText_1;
+    }
+  }
+
+  .switch-language {
+    &__subscription {
+      color: $darkText_1;
+    }
+    &__slash {
+      color: $darkText_3;
+    }
+    &__button {
+      color: $darkText_2;
+    }
+  }
+
+  .switch-topic {
+    &__input {
+      &:checked + .switch-topic__slider:before {
+        left: 12px;
       }
-    
-      &__right-side {
-        background-color: $darkBg_4;
-      }
+    }
+    &__slider:before {
+      background-color: $accentColor;
     }
   }
 }

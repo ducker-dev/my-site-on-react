@@ -10,9 +10,10 @@ import { changeTheme } from "./../../../Store/actions";
 
 class Header extends React.Component {
   render() {
+    console.log(this.props.theme);
     return (
-      <header className={"header theme_" + this.props.theme}>
-        <div className="header__left-side transition_bg">
+      <header className={`header theme_${this.props.theme}`}>
+        <div className="header__left-side">
           <div className="container-mini">
             <img
               className="header__logo"
@@ -21,7 +22,7 @@ class Header extends React.Component {
             />
           </div>
         </div>
-        <div className="header__right-side transition_bg">
+        <div className="header__right-side">
           <div className="container">
             <div className="header__functions">
               <div className="switch-language">
@@ -48,11 +49,15 @@ class Header extends React.Component {
                 <input
                   className="switch-topic__input"
                   type="checkbox"
-                  value={this.props.theme === "dark"}
+                  checked={this.props.theme === "dark"}
                   onChange={() => {
-                    this.props.theme === "light"
-                    ? this.props.changeTheme('dark')
-                    : this.props.changeTheme('light')
+                    if (this.props.theme === "light") {
+                      localStorage.setItem("theme", "dark");
+                      this.props.changeTheme("dark");
+                    } else {
+                      localStorage.setItem("theme", "light");
+                      this.props.changeTheme("light");
+                    }
                   }}
                 />
                 <div className="switch-topic__slider" />
@@ -151,11 +156,9 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    theme: state.theme
-  }
-};
+const mapStateToProps = state => ({
+  theme: state.theme
+});
 
 const mapDispatchToProps = {
   changeTheme

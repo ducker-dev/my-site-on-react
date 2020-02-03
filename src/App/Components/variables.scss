@@ -3,22 +3,36 @@ $darkBg_1: #1f1f1f;
 $darkBg_2: #292929;
 $darkBg_3: #000000;
 $darkBg_4: #111111;
+$darkBg_5: #333333;
 
 // Цвета текста для темных фонов
-$white: #ffffff;
-$silver: #cccccc;
-$doveGray: #666666;
-$athensGray: #e3e5e8;
+$darkText_1: #ffffff;
+$darkText_2: #cccccc;
+$darkText_3: #666666;
+$darkText_4: #e3e5e8;
 
 // Цвет линии для темных фонов
-$lightHr: #333333;
+$darkHr: #333333;
 
 // Цвета светлых фонов
-$lightBg_1: #FCFCFC;
-$lightBg_2: #F8F8F8;
-$lightBg_3: #FFFFFF;
+$lightBg_1: #fcfcfc;
+$lightBg_2: #f8f8f8;
+$lightBg_3: #ffffff;
+$lightBg_4: #eeeeee;
 
+// Цвета текста для светлых фонов
+$lightText_1: #333333;
+$lightText_2: #aaaaaa;
+$lightText_3: #292929;
+$lightText_4: #666666;
+$lightText_5: #111111;
+$lightText_6: #030e1e;
 
+// Цвет линии для темных фонов
+$lightHr: #cccccc;
 
 // Основной акцентный цвет текста
-$buttercup: #f1b10d;
+$accentColor: #f1b10d;
+
+// Скорость изменения цвета
+$mainSpeed: 0.5s;

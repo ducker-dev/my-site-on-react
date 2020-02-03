@@ -1,7 +1,7 @@
 import { CHANGE_THEME } from "./actions";
 
 const initialState = {
-  theme: "light"
+  theme: localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
 };
 
 export const changeTheme = (state = initialState, action) => {
@@ -11,7 +11,7 @@ export const changeTheme = (state = initialState, action) => {
         ...state,
         theme: action.payload
       };
+    default:
+      return state;
   }
-
-  return state;
 };
