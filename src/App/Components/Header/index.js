@@ -1,18 +1,27 @@
 import React from "react";
+import classNames from "classnames";
+
+import { connect } from "react-redux";
+import { changeTheme, changeLanguage } from "../../../Redux/actions";
+
 import MyPhoto from "./../../Static/Images/my-photo.png";
 import TelegramIcon from "./../../Static/Images/telegram-icon.svg";
 import InstagramIcon from "./../../Static/Images/instagram-icon.svg";
 import VkIcon from "./../../Static/Images/vk-icon.svg";
 import "./style.scss";
 
-import { connect } from "react-redux";
-import { changeTheme } from "./../../../Store/actions";
-
 class Header extends React.Component {
   render() {
-    console.log(this.props.theme);
+    const {
+      theme,
+      language,
+      dictionary,
+      changeLanguage,
+      changeTheme
+    } = this.props;
+
     return (
-      <header className={`header theme_${this.props.theme}`}>
+      <header className={`header theme_${theme}`}>
         <div className="header__left-side">
           <div className="container-mini">
             <img
@@ -26,20 +35,28 @@ class Header extends React.Component {
           <div className="container">
             <div className="header__functions">
               <div className="switch-language">
-                <div className="switch-language__subscription">Язык:</div>
+                <div className="switch-language__subscription">
+                  {dictionary.header.tongue}
+                </div>
                 <button
-                  className="switch-language__button"
+                  className={classNames("switch-language__button", {
+                    "switch-language__button_active": language === "ru"
+                  })}
                   onClick={() => {
-                    console.log("Русский язык");
+                    localStorage.setItem("language", "ru");
+                    changeLanguage("ru");
                   }}
                 >
                   Русский
                 </button>
                 <div className="switch-language__slash">/</div>
                 <button
-                  className="switch-language__button switch-language__button_active"
+                  className={classNames("switch-language__button", {
+                    "switch-language__button_active": language === "en"
+                  })}
                   onClick={() => {
-                    console.log("Английский язык");
+                    localStorage.setItem("language", "en");
+                    changeLanguage("en");
                   }}
                 >
                   English
@@ -49,21 +66,21 @@ class Header extends React.Component {
                 <input
                   className="switch-topic__input"
                   type="checkbox"
-                  checked={this.props.theme === "dark"}
+                  checked={theme === "dark"}
                   onChange={() => {
-                    if (this.props.theme === "light") {
+                    if (theme === "light") {
                       localStorage.setItem("theme", "dark");
-                      this.props.changeTheme("dark");
+                      changeTheme("dark");
                     } else {
                       localStorage.setItem("theme", "light");
-                      this.props.changeTheme("light");
+                      changeTheme("light");
                     }
                   }}
                 />
                 <div className="switch-topic__slider" />
               </label>
             </div>
-            <h1 className="header__title">Иван Смирнов</h1>
+            <h1 className="header__title">{dictionary.header.mainTitle}</h1>
             <div className="header__more-info">
               <div className="header__desired-position">
                 Middle front-end developer
@@ -110,13 +127,17 @@ class Header extends React.Component {
             <hr className="header__hr" />
             <div className="header__contacts">
               <div className="header__contact">
-                <div className="header__contact-title">Расположение</div>
+                <div className="header__contact-title">
+                  {dictionary.header.location}
+                </div>
                 <span className="header__contact-content header__contact-address">
-                  Тольяти, Россия
+                  {dictionary.header.locationText}
                 </span>
               </div>
               <div className="header__contact">
-                <div className="header__contact-title">Телефон</div>
+                <div className="header__contact-title">
+                  {dictionary.header.phoneNumber}
+                </div>
                 <a
                   className="header__contact-content"
                   href="tel:+79377918200"
@@ -138,7 +159,7 @@ class Header extends React.Component {
                 </a>
               </div>
               <div className="header__contact">
-                <div className="header__contact-title">Почта</div>
+                <div className="header__contact-title">{dictionary.header.mail}</div>
                 <a
                   className="header__contact-content"
                   href="mailto:the.ivan.smirnov@gmail.com"
@@ -156,12 +177,15 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  theme: state.theme
+const mapStateToProps = store => ({
+  theme: store.theme,
+  language: store.language,
+  dictionary: store.dictionary
 });
 
 const mapDispatchToProps = {
-  changeTheme
+  changeTheme,
+  changeLanguage
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
