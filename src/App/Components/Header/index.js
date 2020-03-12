@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import classNames from "classnames";
 
 import { connect } from "react-redux";
@@ -10,7 +10,7 @@ import InstagramIcon from "./../../Static/Images/instagram-icon.svg";
 import VkIcon from "./../../Static/Images/vk-icon.svg";
 import "./style.scss";
 
-class Header extends React.Component {
+class Header extends Component {
   render() {
     const {
       theme,

@@ -14,6 +14,7 @@ $darkText_4: #e3e5e8;
 // Цвет линии для темных фонов
 $darkHr: #333333;
 
+
 // Цвета светлых фонов
 $lightBg_1: #fcfcfc;
 $lightBg_2: #f8f8f8;
@@ -31,8 +32,13 @@ $lightText_6: #030e1e;
 // Цвет линии для темных фонов
 $lightHr: #cccccc;
 
+
 // Основной акцентный цвет текста
 $accentColor: #f1b10d;
 
 // Скорость изменения цвета
 $mainSpeed: 0.5s;
+
+
+// Ширина колонок для Desktop
+$widthColumsDesktop: 33.35% 66.65%;

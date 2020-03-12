@@ -2,7 +2,7 @@
 
 .header {
   display: grid;
-  grid-template-columns: 33.35% 66.65%;
+  grid-template-columns: $widthColumsDesktop;
 
   &__left-side {
     transition: background-color $mainSpeed;
@@ -95,6 +95,7 @@
       line-height: 16px;
       transition: color $mainSpeed;
     }
+
     &-content {
       vertical-align: middle;
       font-size: 12px;
@@ -105,6 +106,7 @@
         text-decoration: none;
       }
     }
+
     &-address {
       transition: color $mainSpeed;
     }
@@ -161,6 +163,7 @@
       outline: #15469b auto 5px;
     }
   }
+
   &__slider {
     position: relative;
     box-sizing: border-box;
@@ -218,9 +221,11 @@
     &__subscription {
       color: $lightText_1;
     }
+
     &__slash {
       color: $lightText_4;
     }
+
     &__button {
       color: $lightText_2;
     }
@@ -268,9 +273,11 @@
     &__subscription {
       color: $darkText_1;
     }
+
     &__slash {
       color: $darkText_3;
     }
+
     &__button {
       color: $darkText_2;
     }
@@ -282,6 +289,7 @@
         left: 12px;
       }
     }
+
     &__slider:before {
       background-color: $accentColor;
     }

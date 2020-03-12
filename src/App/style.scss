@@ -1,0 +1,15 @@
+@import "./Components/variables.scss";
+
+.about-me {
+  height: 300px;
+  display: grid;
+  grid-template-columns: $widthColumsDesktop;
+
+  &__left-side {
+    transition: background-color $mainSpeed;
+  }
+
+  &__right-side {
+    transition: background-color $mainSpeed;
+  }
+}

@@ -6,5 +6,13 @@
     "phoneNumber": "Phone",
     "mail": "Mail",
     "locationText": "Tolyatti, Russia"
+  },
+  "aboutMe": {
+    "title": "About me",
+    "subTitle": "Ponies don't eat the rainbow",
+    "description": [
+      "Hi, human! I am a simple modest guy from the small town of Tolyatti (where the lada do). I'm 22 years old at the moment.",
+      "Since 19 years I have been working in the field of web development. I’ve been create game simulations on ReactJS for 2 years, then went to the programming school to teach, but in the end I became the head of the training part and now I am writing training courses on frontend-development and supervising teachers with mentors. In parallel, doing self-pumping. The site on which you are currently located is just the place where I test everything I have learned."
+    ]
   }
 }
